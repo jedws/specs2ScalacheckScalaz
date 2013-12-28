@@ -1,3 +1,5 @@
+This repo shows a classpath issue between scalacheck 1.10/1.11, specs2 2.3.6 and scalaz-scalacheck-binding 7.0.5  
+
 running `sbt test` should show the following:
 
     [info] BoxSpec
@@ -58,4 +60,4 @@ running `sbt test` should show the following:
     [error] (test:test) sbt.TestsFailedException: Tests unsuccessful
     [error] Total time: 8 s, completed Dec 28, 2013 11:41:19 AM
 
-those appear to indicate that scalacheck 1.10.x's `Prop` is being brought in somehow.
+those appear to indicate that scalacheck 1.10.x's `Prop` is being brought in somehow, yet it should be explicitly excluded. All investigation of the classpath appears to indicate only scalacheck 1.11.1 is present, which makes it difficult to understand the source of these errors.
